@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido de Comida Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Pedido de Comida Online</h1>
+    <form action="/submit-pedido" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required>
+
+        <label for="tipo-comida">Tipo de Comida:</label>
+        <select id="tipo-comida" name="tipo-comida" required>
+            <option value="pizza">Pizza</option>
+            <option value="sushi">Sushi</option>
+            <option value="hamburguer">Hambúrguer</option>
+            <option value="salada">Salada</option>
+        </select>
+
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes" rows="4" cols="50"></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

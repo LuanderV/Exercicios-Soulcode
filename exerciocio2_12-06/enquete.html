@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Enquete sobre o site</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+        <h1>Enquete sobre o site</h1>
+            <form action="/submit-enquete" method="POST">
+                <label for="pergunta">De sua opinião sobre o site:</label>
+                <input type="text" id="pergunta" name="pergunta" placeholder="opcional">
+
+                <label>Avalie:</label>
+                <input type="radio" id="opcao1" name="resposta" value="ruim" required>
+                <label for="opcao1">Ruim</label>
+
+                <input type="radio" id="opcao2" name="resposta" value="mais-ou-menos">
+                <label for="opcao2">Mais ou menos</label>
+
+                <input type="radio" id="opcao3" name="resposta" value="bom">
+                <label for="opcao3">Bom</label><br>
+
+                <button type="submit" id="enviar">Enviar</button>
+            </form>
+    <nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

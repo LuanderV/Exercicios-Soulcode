@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>Reserva de Hotel</h1>
+    <form action="/submit-reserva" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="checkin">Data de Check-in:</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout">Data de Check-out:</label>
+        <input type="date" id="checkout" name="checkout" required>
+
+        <label for="tipo-quarto">Tipo de Quarto:</label>
+        <select id="tipo-quarto" name="tipo-quarto" required>
+            <option value="solteiro">Solteiro</option>
+            <option value="casal">Casal</option>
+            <option value="familia">Família</option>
+        </select>
+
+        <label for="comentarios">Comentários Adicionais:</label>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>
