@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: slide-in-top 1s ease-out;
+}
+img {
+    width: 500px;
+    height: auto;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, opacity 0.3s;
+}
+img:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+.fade-in {
+    animation: fade-in 2s ease-in;
+}
+.slide-in-left {
+    animation: slide-in-left 1s ease-out;
+}
+.imagens {
+    text-align: center;
+}
+div {
+    max-width: 800px;
+    margin: auto;
+}
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+ol, ul {
+    list-style-type: circle;
+}
+li {
+    padding-bottom: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+li:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+.tabela-nutricional, .tabela-preparo {
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabela-nutricional th, .tabela-nutricional td, .tabela-preparo th, .tabela-preparo td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.tabela-nutricional th, .tabela-preparo th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-top {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
