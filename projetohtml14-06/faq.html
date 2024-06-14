@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tech Solutions - Perguntas Frequentes">
+    <meta name="keywords" content="faq, perguntas frequentes, dúvidas, suporte">
+    <meta name="author" content="Luander">
+    <title>FAQ - Tech Solutions</title>
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <script> document.addEventListener('DOMContentLoaded', function() {
+        const dtElements = document.querySelectorAll('#faq dt');
+    
+        dtElements.forEach(dt => {
+            dt.addEventListener('click', function() {
+                this.classList.toggle('active');
+    
+                const dd = this.nextElementSibling;
+                if (dd.style.maxHeight) {
+                    dd.style.maxHeight = null;
+                } else {
+                    dd.style.maxHeight = dd.scrollHeight + 'px';
+                }
+            });
+        });
+    }); </script>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="sobre.html">Quem Somos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="faq">
+            <h1>Perguntas Frequentes</h1>
+            <dl>
+                <dt>Quais serviços vocês oferecem?</dt>
+                <dd>Nós oferecemos uma ampla gama de serviços, incluindo consultoria, desenvolvimento de software e suporte técnico.</dd>
+                
+                <dt>Como posso entrar em contato com o suporte?</dt>
+                <dd>Você pode entrar em contato com o suporte pelo nosso formulário de contato ou pelo telefone disponível na página de Contato.</dd>
+                
+                <dt>Posso solicitar um projeto personalizado?</dt>
+                <dd>Sim, nós oferecemos desenvolvimento de software personalizado para atender às necessidades específicas do seu negócio.</dd>
+                
+                <dt>Qual é o tempo médio de resposta do suporte técnico?</dt>
+                <dd>Nosso suporte técnico tem um tempo médio de resposta de menos de 1 hora, garantindo assistência rápida e eficiente.</dd>
+                
+                <dt>Quais são os métodos de pagamento aceitos?</dt>
+                <dd>Aceitamos pagamentos através de transferência bancária, cartão de crédito e boleto bancário.</dd>
+            </dl>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tech Solutions. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
