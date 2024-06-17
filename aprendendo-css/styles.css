@@ -1,0 +1,33 @@
+p {
+    color: rebeccapurple;
+}
+
+/*
+    - Unidades absolutas (px, cm, pt, etc);
+    - Unidades relativas 
+        vh  -> viewport height (altura tela)
+        vw -> viewport width (largura tela)
+        em 
+        rem 
+        %
+*/
+
+.quadrado1 {
+    background-color: royalblue;
+    width: 150px;
+    height: 150px;
+}
+
+.quadrado2 {
+    background-color: aqua;
+    width: 80vw;
+    height: 40vh;
+}
+
+.quadrado3 {
+    background-color: brown;
+}
+
+.quadrado4 {
+    background-color: blue;
+}
