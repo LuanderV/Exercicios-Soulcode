@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+section {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.342);
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 10px;
+    background: #f9f9f9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.342);
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.botao-primary {
+    background: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.botao-primary:hover {
+    background: #0056b3;
+}
+
+.botao-secondary {
+    background: #6c757d;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.botao-secondary:hover {
+    background: #5a6268;
+}
+
+.botao-success {
+    background: #28a745;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.botao-success:hover {
+    background: #218838;
+}
+
+.botao-pag1 {
+    background: #aa2db6;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.botao-pag1:hover {
+    background: #650f6d;
+}
