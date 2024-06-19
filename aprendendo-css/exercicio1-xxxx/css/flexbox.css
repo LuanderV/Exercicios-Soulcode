@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.item-1 {
+    background-color: rgb(187, 224, 21);
+}
+
+.item-2 {
+    background-color: rgb(185, 10, 10);
+}
+
+.item-3 {
+    background-color: rgb(27, 16, 185);
+}
+
+.item-4 {
+    background-color: rgb(17, 206, 174);
+}
+
+.item-1, .item-2, .item-3, .item-4 {
+    border-radius: 10px;
+    border: 1px solid wheat;
+    margin: 2px;
+    width: 200px;
+    padding: 8px;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.562);
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
