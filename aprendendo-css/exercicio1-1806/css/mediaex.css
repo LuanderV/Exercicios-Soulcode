@@ -1,0 +1,36 @@
+/* Media Query = regra especial */
+/* 
+    @media (condicao) {
+        // estilos a serem aplicados quando a condição for verdadeira
+    }
+*/
+
+/* de 0 até 480 */
+@media (max-width: 480px) {
+    body {
+        background-color: #0b49e4;
+    }
+}
+
+/* De 481 até 768 */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        background-color: #e611d4;
+    }
+}
+
+/* Apartir de 769 */
+@media (min-width: 769px) {
+    body {
+        background-color: #faf74f;
+    }
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: rgb(255, 251, 0);
+    }
+}
+*/
