@@ -128,12 +128,12 @@ th {
 
     .cronograma {
         width: 100%;
-        padding: 8px;
+        padding: 4px;
+        overflow-x: auto;
     }
 
     table, th, td {
         font-size: 0.8rem;
-        padding: 4px;
     }
 }
 
@@ -145,10 +145,12 @@ th {
     .cronograma {
         width: 100%;
         padding: 16px;
+        overflow-x: auto;
     }
 
     table, th, td {
         font-size: 1rem;
+        padding: 8px;
     }
 }
 
