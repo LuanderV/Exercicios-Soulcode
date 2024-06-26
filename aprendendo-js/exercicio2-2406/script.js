@@ -45,10 +45,10 @@ if (a > b) {
 let salario = 2000;
 let quantidadeDependentes = 3;
 
-if (quantidadeDependentes >= 1 && quantidadeDependentes <= 5) {
-    salario *= 1.30; // aumento de 30%
+if (quantidadeDependentes >= 1 & quantidadeDependentes <= 5) {
+    salario *= 1.30; console.log("Aumento de 30%")
 } else if (quantidadeDependentes > 5) {
-    salario *= 1.40; // aumento de 40%
+    salario *= 1.40; console.log("Aumento de 40%")
 }
 
 console.log("Salário ajustado: " + salario);
@@ -65,7 +65,7 @@ if (diaSemana == 1 || diaSemana == 7) {
 }
 
 //6° Verificar se um ano é bissexto
-let ano = 2024;
+let ano = 2400;
 
 if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
     console.log("Ano bissexto");
@@ -83,7 +83,9 @@ if (idade < 0 || idade > 130) {
 }
 
 //8° Mensagem baseada no turno de aula
-let turno = 'M'; // 'M' para Matutino, 'V' para Vespertino, 'N' para Noturno
+let turno = 'm'; // 'M' para Matutino, 'V' para Vespertino, 'N' para Noturno
+
+turno = turno.toUpperCase();
 
 switch (turno) {
     case 'M':
