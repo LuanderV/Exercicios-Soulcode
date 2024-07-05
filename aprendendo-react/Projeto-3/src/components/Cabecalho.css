@@ -1,0 +1,46 @@
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    height: 50px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 130px;
+    width: 130px;
+  }
+  
+  .logo-text {
+    font-size: 1.5em;
+  }
+  
+  .cabecalho nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .cabecalho nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .cabecalho button {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+
+@media (max-width: 768px) {
+    .logo-text {
+        display: none;
+    }
+}

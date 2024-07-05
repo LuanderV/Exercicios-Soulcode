@@ -11,7 +11,7 @@ function App() {
       <CardAluno nome="João Silva" serie="3º Ano" media={8.5} />
       <CardAluno nome="Maria Souza" serie="2º Ano" media={6.4} />
       <CardProduto nome="Cadeira Gamer" precoUnitario={599.99} desconto={10} />
-      <CardProduto nome="Mesa de Escritório" precoUnitario={299.99} desconto={0} />
+      <CardProduto nome="Mesa de Escritório" precoUnitario={299.99} desconto={5} />
     </div>
   );
 }
