@@ -1,0 +1,26 @@
+.post-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10%;
+}
+
+.post-button {
+    background-color: #00f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post-button.curtido {
+    background-color: #f00;
+}
+
+.post-button:hover {
+    opacity: 0.8;
+}
