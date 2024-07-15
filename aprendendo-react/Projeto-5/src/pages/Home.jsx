@@ -1,26 +1,52 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import Banner from '../components/Banner';
 
-function Home() {
+import cobraKai from '../assets/cobra-kai.png';
+import casaDoDragao from '../assets/a-casa-do-dragao.png';
+import gameOfThrones from '../assets/game-of-thrones.png';
+
+const filmes = [
+  {
+    titulo: 'Cobra Kai',
+    descricao: 'Série de Kung Fu.',
+    imagem: cobraKai
+  },
+  {
+    titulo: 'A Casa do Dragão',
+    descricao: 'Série de fantasia épica.',
+    imagem: casaDoDragao
+  },
+  {
+    titulo: 'Game of Thrones',
+    descricao: 'Série de fantasia épica.',
+    imagem: gameOfThrones
+  },
+];
+
+const Galeria = () => {
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-md-center">
-        <Col md={8}>
-          <h1 className="text-center mb-4">Página Inicial</h1>
-          <p className="text-center">Bem-vindo ao nosso aplicativo! Estamos felizes em tê-lo aqui. Explore nossos recursos e aproveite sua estadia.</p>
-          <Card className="mt-4">
-            <Card.Body>
-              <Card.Title>Sobre Nós</Card.Title>
-              <Card.Text>
-                Nosso aplicativo tem como objetivo fornecer os melhores serviços aos nossos usuários. Estamos constantemente inovando e atualizando nossos recursos para atender às suas necessidades.
-              </Card.Text>
-              <Button variant="primary">Saiba Mais</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Banner />
+      <Container className="mt-5">
+        
+        <Row>
+          {filmes.map((filme, index) => (
+            <Col key={index} md={4} className="mb-4">
+              <Card className="h-100">
+                <Card.Img variant="top" src={filme.imagem} alt={filme.titulo} />
+                <Card.Body>
+                  <Card.Title>{filme.titulo}</Card.Title>
+                  <Card.Text>{filme.descricao}</Card.Text>
+                  <Button variant="primary">Ver Detalhes</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
   );
-}
+};
 
-export default Home;
+export default Galeria;
