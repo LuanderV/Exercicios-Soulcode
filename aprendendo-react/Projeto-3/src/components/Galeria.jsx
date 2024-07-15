@@ -3,7 +3,7 @@ import Card from './Card';
 import './Galeria.css';
 
 // Importando as imagens locais da pasta assets
-import cobraKai from '../assets/cobra-kai.png'
+import cobraKai from '../assets/cobra-kai.png';
 import casaDoDragao from '../assets/a-casa-do-dragao.png';
 import gameOfThrones from '../assets/game-of-thrones.png';
 
