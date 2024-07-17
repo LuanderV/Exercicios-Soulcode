@@ -13,8 +13,6 @@ import EditarTarefa from "./pages/EditarTarefa";
 import Rodape from "./components/Rodape";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/config";
-import { UsuarioContext } from "./contexts/UsuarioContext";
-import Loader from "./components/Loader";
 
 
 // BrowserRouter: componente essencial para conduzir o roteamento no navegador.
@@ -24,40 +22,32 @@ function App() {
   // O estado de usuario indica se ele esta logado ou nao
   // null = deslogado
   const [ usuarioLogado, setUsuarioLogado ] = useState(null);
-  const [loading, setLoading ] = useState(true);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       // user é nulo -> usuario deslogou
       // se tem objeto -> usuario logou
       setUsuarioLogado(user);
-      setLoading(false);
     });
   }, []);
 
-  if(loading) {
-    return <Loader />
-  }
-
   return (
     <>
-      <UsuarioContext.Provider value={usuarioLogado}>
-        <BrowserRouter>
-          <Menu />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<Cadastro />} />
-            <Route path="/ajuda" element={<Ajuda />} />
-            <Route path="/tarefas" element={<Tarefas />}/>
-            <Route path="/tarefas/adicionar" element={<NovaTarefa />}/>
-            <Route path="/tarefas/editar/:id" element={<EditarTarefa />}/>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Rodape />
-        </BrowserRouter>
-        <Toaster position="bottom-right" />
-      </UsuarioContext.Provider>
+      <BrowserRouter>
+        <Menu usuario={usuarioLogado}/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/ajuda" element={<Ajuda />} />
+          <Route path="/tarefas" element={<Tarefas />}/>
+          <Route path="/tarefas/adicionar" element={<NovaTarefa />}/>
+          <Route path="/tarefas/editar/:id" element={<EditarTarefa />}/>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Rodape />
+      </BrowserRouter>
+      <Toaster position="bottom-right" />
     </>
   );
 }

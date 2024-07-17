@@ -1,5 +1,8 @@
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { entrarGoogle, loginUsuario } from "../firebase/auth";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const {
@@ -8,10 +11,28 @@ function Login() {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   function entrar(data) {
     // data é um objeto com os dados do formulário
-    console.log("Login!");
-    console.log(data);
+    loginUsuario(data.email, data.senha).then(() => {
+      toast.success("Bem-vindo(a)!");
+      navigate("/tarefas");
+    })
+    .catch(() => {
+      toast.error("Email ou Senha incorretos!");
+    });
+  }
+
+  function handleEntrarGoogle() {
+    entrarGoogle().then(() => {
+      toast.success("Bem vindo(a)!");
+      navigate("/tarefas");
+    })
+    .catch((error) => {
+      toast.error("Ocorreu um erro ao fazer login com o Google.");
+      console.error("Erro ao fazer login com o Google:", error);
+    });
   }
 
   return (
@@ -49,7 +70,7 @@ function Login() {
         <Button variant="dark" className="mt-1 w-100" type="submit">
           Entrar
         </Button>
-        <Button variant="danger" className="mt-1 w-100" type="button">
+        <Button onClick={handleEntrarGoogle} variant="danger" className="mt-1 w-100" type="button">
           Entrar com o Google
         </Button>
       </form>

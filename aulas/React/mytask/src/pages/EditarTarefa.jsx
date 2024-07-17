@@ -1,86 +1,107 @@
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { addTarefa } from "../firebase/tarefas";
 import toast from "react-hot-toast";
-import { useNavigate, Navigate } from "react-router-dom";
-import { useContext } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { getTarefa, updateTarefa } from "../firebase/tarefas";
+import { useContext, useEffect } from "react";
 import { UsuarioContext } from "../contexts/UsuarioContext";
 
-function NovaTarefa() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+function EditarTarefa() {
+  const { id } = useParams();
 
   const usuario = useContext(UsuarioContext);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
+
   const navigate = useNavigate();
 
-  function salvarTarefa(data) {
-    // novo campo no documento que associa o usuario e tarefa
-    data.idUsuario = usuario.uid;
-    // Os dados do formulário são passados para a função
-    addTarefa(data).then(() => {
-      toast.success("Tarefa adicionada com Sucesso")
-      navigate("/tarefas");
-    }).catch(() => {
-      toast.error("Ocorreu um erro ao adicionar a tarefa!")
+  function carregarDado() {
+    getTarefa(id).then((tarefa) => {
+        if(tarefa) {
+            reset(tarefa);
+        } else {
+            navigate("/tarefas");
+        }
+    });
+  }
+
+  function atualizarTarefa(data) {
+    updateTarefa(id, data).then(() => {
+        toast.success("Tarefa atualizada com sucesso");
+        navigate("/tarefas");
     })
   }
 
+  useEffect(() => {
+    carregarDado();
+  }, []);
+
+  // se o usuario nao esta logado
   if (usuario === null) {
-    // navegar para outra página
-    return <Navigate to="/login" />;
+    // navegar para outra pagina
+    return <Navigate to="/login" />
   }
 
   return (
     <main>
-      <form className="form-section" onSubmit={handleSubmit(salvarTarefa)}>
-        <h1>Adicionar tarefa</h1>
+      <form className="form-section" onSubmit={handleSubmit(atualizarTarefa)}>
+        <h1>Editar tarefa</h1>
         <hr />
         <div>
           <label htmlFor="titulo">Título</label>
-          <input 
-            type="text" 
-            id="titulo" 
+          <input
+            type="text"
+            id="titulo"
             className="form-control"
             {...register("titulo", { required: true, maxLength: 200 })}
-            />
-            {errors.titulo && <small className="invalid">O título é inválido!</small>}
+          />
+          {errors.titulo && (
+            <small className="invalid">O título é inválido!</small>
+          )}
         </div>
         <div>
           <label htmlFor="descricao">Descrição</label>
-          <textarea 
-            id="descricao" 
+          <textarea
+            id="descricao"
             className="form-control"
             {...register("descricao", { required: true })}
-            ></textarea>
-            {errors.descricao && <small className="invalid">A descrição é inválida!</small>}
+          ></textarea>
+          {errors.descricao && (
+            <small className="invalid">A descrição é inválida!</small>
+          )}
         </div>
         <div>
           <label htmlFor="dataConclusao">Data</label>
-          <input 
-            type="date" 
-            id="dataConclusao" 
-            className="form-control" 
+          <input
+            type="date"
+            id="dataConclusao"
+            className="form-control"
             {...register("dataConclusao")}
-            />
+          />
         </div>
         <div className="form-check">
-          <input 
-            type="checkbox" 
-            id="concluido" 
+          <input
+            type="checkbox"
+            id="concluido"
             className="form-check-input"
             {...register("concluido")}
-            />
+          />
           <label htmlFor="concluido" className="form-check-label">
             Concluído?
           </label>
         </div>
         <div>
           <label htmlFor="categoria">Categoria</label>
-          <select 
-            id="categoria" 
+          <select
+            id="categoria"
             className="form-select"
             {...register("categoria")}
-            >
+          >
             <option value="Trabalho">Trabalho</option>
             <option value="Estudos">Estudos</option>
             <option value="Projetos">Projetos</option>
@@ -89,11 +110,11 @@ function NovaTarefa() {
           </select>
         </div>
         <Button variant="dark" className="w-100 mt-1" type="submit">
-          Salvar Tarefa
+          Atualizar Tarefa
         </Button>
       </form>
     </main>
   );
 }
 
-export default NovaTarefa;
+export default EditarTarefa;
