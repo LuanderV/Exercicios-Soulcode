@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, Button, Tab, Tabs } from 'react-bootstrap';
 
 function Home() {
   return (
