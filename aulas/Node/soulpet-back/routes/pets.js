@@ -60,6 +60,7 @@ petsRouter.post("/pets", async (req, res) => {
   }
 });
 
+
 // [PUT] /pets/:id -> Atualizar um pet
 petsRouter.put("/pets/:id", async (req, res) => {
   const { nome, tipo, porte, dataNasc } = req.body;

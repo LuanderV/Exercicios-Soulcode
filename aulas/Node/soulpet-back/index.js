@@ -19,6 +19,8 @@ const app = express();
 
 // Garantir que todas as requisições que têm body sejam lidas como JSON
 app.use(express.json());
+
+// Configuração do CORS
 app.use(cors({ origin: "http://localhost:5173" }));
 
 // Definir os endpoints do backend
