@@ -2,8 +2,9 @@ import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getPet, updatePet } from "../api/pets";
+import { getCliente } from "../api/clientes"; // Adicione a função para buscar cliente
 
 function EditarPet() {
   const {
@@ -13,8 +14,8 @@ function EditarPet() {
     reset
   } = useForm();
 
+  const [clienteNome, setClienteNome] = useState(""); // Estado para armazenar o nome do cliente
   const navigate = useNavigate();
-
   const { id } = useParams();
 
   function atualizarPet(data) {
@@ -27,8 +28,17 @@ function EditarPet() {
   }
 
   function carregarPet() {
-    getPet(id).then((dados) => {
+    getPet(id).then(async (dados) => {
       reset(dados);
+      
+      if (dados.clienteId) {
+        try {
+          const cliente = await getCliente(dados.clienteId);
+          setClienteNome(cliente.nome); // Define o nome do cliente no estado
+        } catch (error) {
+          console.error("Erro ao buscar cliente", error);
+        }
+      }
     }).catch((err) => {
       navigate("/pets");
     });
@@ -38,13 +48,12 @@ function EditarPet() {
     carregarPet();
   }, []);
 
-
   return (
     <main className="mt-4 container">
       <h1>Editar Pet</h1>
       <hr />
       <form onSubmit={handleSubmit(atualizarPet)}>
-      <div>
+        <div>
           <label htmlFor="nome">Nome</label>
           <input
             type="text"
@@ -93,12 +102,12 @@ function EditarPet() {
           )}
         </div>
         <div>
-          <label id="clienteId" htmlFor="dataNasc">Id do cliente</label>
+          <label htmlFor="clienteId">Nome do Cliente</label>
           <input
-            type="number"
+            type="text"
             id="clienteId"
             className="form-control"
-            {...register("clienteId", { required: true })}
+            value={clienteNome} // Exibe o nome do cliente
             readOnly
           />
         </div>
