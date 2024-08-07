@@ -93,16 +93,14 @@ function EditarPet() {
           )}
         </div>
         <div>
-          <label htmlFor="dataNasc">Id do cliente</label>
+          <label id="clienteId" htmlFor="dataNasc">Id do cliente</label>
           <input
             type="number"
             id="clienteId"
             className="form-control"
             {...register("clienteId", { required: true })}
+            readOnly
           />
-          {errors.dataNasc && (
-            <small className="text-danger">O cliente é inválido!</small>
-          )}
         </div>
         <Button className="mt-3" type="submit">
           Atualizar

@@ -42,6 +42,7 @@ function Pets() {
             <th>Tipo</th>
             <th>Porte</th>
             <th>Data de Nascimento</th>
+            <th>Dono</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -52,7 +53,7 @@ function Pets() {
               <td>{pet.tipo}</td>
               <td>{pet.porte}</td>
               <td>{pet.dataNasc}</td>
-              <td>{pet.clienteId ? pet.clienteId.nome : 'Cliente não encontrado'}</td> {/* Exibindo o nome do cliente */}
+              <td>{pet.clienteId}</td>
               <td>
                 <Button variant="danger" size="sm" onClick={() => deletarPet(pet.id)}>Excluir</Button>
                 <Button size="sm" as={Link} to={`/pets/editar/${pet.id}`}>Editar</Button>
